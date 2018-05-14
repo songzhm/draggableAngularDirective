@@ -6,8 +6,8 @@ import {Directive, EventEmitter, HostBinding, HostListener, Output} from '@angul
 export class DraggableDirective {
   @HostBinding('class.draggable') draggable = true;
   @Output() dragStart = new EventEmitter<PointerEvent>();
-  @Output() dragMove = new EventEmitter();
-  @Output() dragEnd = new EventEmitter();
+  @Output() dragMove = new EventEmitter<PointerEvent>();
+  @Output() dragEnd = new EventEmitter<PointerEvent>();
 
   private dragging = false;
   // pointerdown => dragStart
