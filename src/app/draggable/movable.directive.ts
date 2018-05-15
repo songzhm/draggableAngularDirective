@@ -1,4 +1,4 @@
-import {Directive, HostBinding, HostListener, Input} from '@angular/core';
+import {Directive, ElementRef, HostBinding, HostListener, Input} from '@angular/core';
 import {DraggableRxDirective} from './draggable-rx.directive';
 import {DomSanitizer, SafeStyle} from '@angular/platform-browser';
 
@@ -20,13 +20,13 @@ export class MovableDirective extends DraggableRxDirective {
 
   @HostBinding('class.movable') movable = true;
 
-  private position = {x: 0, y: 0};
+  public position = {x: 0, y: 0};
 
   private startPosition: Position;
 
   @Input('appMovableReset') reset = false;
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer, public element: ElementRef) {
     super();
   }
 

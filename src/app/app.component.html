@@ -7,9 +7,32 @@
      (dragEnd)="onDragEnd()"
 >My box
 </div>
-<div class="box" appDraggable
+<div class="box" appDraggableRx
 
      (dragStart)="onDragStart()"
      (dragMove)="onDragMove($event)"
      (dragEnd)="onDragEnd()"
 >My box</div>
+
+
+<h2 appMovable>Part 2 - moveable directive</h2>
+<div class="box" appMovable>
+
+  <div class="box" appMovable>
+    Movable
+  </div>
+
+  <div class="box" appMovable [appMovableReset]="true">
+    Movable
+  </div>
+</div>
+<h2>Part 3 - movable area</h2>
+<div class="area" appMovableArea>
+
+  <div class="box" appMovable *ngFor="let trapped of trappedBoxes">
+    {{trapped}}
+  </div>
+</div>
+<button (click)="add()">
+  Add
+</button>

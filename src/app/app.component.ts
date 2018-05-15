@@ -6,15 +6,8 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  onDragStart(): void {
-    console.log(`got drag start `);
-  }
-
-  onDragMove(event: PointerEvent): void {
-    console.log(`got drag move ${event.clientX}, ${event.clientY}`);
-  }
-
-  onDragEnd(): void {
-    console.log(`got drag end `);
+  trappedBoxes = ['Trapped 1', 'Trapped 2'];
+  add(): void {
+    this.trappedBoxes.push('New trapped');
   }
 }
