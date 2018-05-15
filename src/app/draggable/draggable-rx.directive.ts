@@ -37,6 +37,7 @@ export class DraggableRxDirective implements OnInit {
     this.pointerDown.asObservable()
       .subscribe(event => {
         this.dragging = true;
+        event.stopPropagation();
         this.dragStart.emit(event);
       });
 
